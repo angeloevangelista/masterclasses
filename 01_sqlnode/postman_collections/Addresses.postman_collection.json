@@ -1,0 +1,57 @@
+{
+	"info": {
+		"_postman_id": "ecb58771-420b-4348-af6f-c26b84e44970",
+		"name": "Addresses",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"zipcode\": \"11714480\",\n    \"street\": \"Av. Henriqueta Lisboa\",\n    \"number\": 7377\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/users/1/addresses",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"users",
+						"1",
+						"addresses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/users/1/addresses",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"users",
+						"1",
+						"addresses"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
