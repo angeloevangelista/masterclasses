@@ -1,6 +1,5 @@
 import React, {
   useState,
-  useEffect,
   useMemo,
   useCallback,
   useRef,
