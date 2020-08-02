@@ -1,4 +1,10 @@
-import React, { useState } from 'react';
+import React, {
+  useState,
+  useEffect,
+  useMemo,
+  useCallback,
+  useRef,
+} from 'react';
 
 interface User {
   name: string;
@@ -7,20 +13,25 @@ interface User {
 }
 
 function App() {
-  const [user, setUser] = useState<User>();
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [users, setUsers] = useState<[User]>();
 
-  async function loaduserData() {
-    const response = await fetch(
-      'https://api.github.com/users/angeloevangelista'
-    );
-    const data = await response.json();
+  const names = useMemo(
+    () => users?.map((user) => user.name).join(', ') || '',
+    [users]
+  );
 
-    setUser(data);
+  const greeting = useCallback((user: User) => alert(`Hello ${user.name}`), []);
+
+  function focusOnInput() {
+    inputRef.current?.focus();
   }
 
-  loaduserData();
-
-  return <h1>{user?.name}</h1>;
+  return (
+    <form action="">
+      <input type="text" ref={inputRef} />
+    </form>
+  );
 }
 
 export default App;
